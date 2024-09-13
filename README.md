@@ -1,5 +1,7 @@
 # LincARI
-ROS noetic packages for the ARI robot in L-CAS
+ROS noetic packages for the ARI robot in L-CAS.
+
+**These packages are to be run on an external PC to the robot and connected either via ETH or the robot's wifi.**
 
 ## Setup
 
