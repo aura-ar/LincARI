@@ -44,7 +44,6 @@
   <build_depend>strands_social</build_depend>
   <build_depend>strands_ui</build_depend>
   <build_depend>strands_bringup</build_depend> -->
-  <!-- <run_depend>strands_navigation</run_depend> -->
   <!-- <run_depend>strands_social</run_depend> -->
   <!-- <run_depend>strands_ui</run_depend> -->
   <!-- <run_depend>strands_bringup</run_depend> -->
