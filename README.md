@@ -1,6 +1,5 @@
 # LincARI
-
+ROS noetic packages for the ARI robot in L-CAS
 
 ## Setup
-
-Install `tmux tmule mongodb pymongo...` 
+`pip install tmule pymongo`
