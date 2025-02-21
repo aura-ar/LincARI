@@ -14,9 +14,9 @@ ROS noetic packages for the ARI robot in L-CAS.
 
 ### Open in VSCode
 
-## 1. Clone the repository
-### If you are cloning for the first time:
-**If you are on a Windows PC the following two additional steps are required:**
+#### 1. Clone the repository
+##### ➡️ If you are cloning for the first time:
+❗**If you are on a Windows PC the following two additional steps are required:**
 
    - Open a terminal(e.g., window's powershell), type `git config --global core.autocrlf false` and press Enter
    - Make sure docker is running by launching the docker desktop application
@@ -25,12 +25,12 @@ Then:
 1. Open a terminal (e.g., window's powershell)
 2. Execute the following command: `git clone https://github.com/LCAS/LincARI.git`
 
-### If you already have a local copy:
+##### ➡️ If you already have a local copy:
 1. Open a terminal (e.g., window's powershell)
 2. Locate and move to the LincARI folder on your system; e.g. `cd /home/computing/LincARI`
 3. Pull the latest changes: `git pull`
 
-## 2. Open the ROS2 container
+#### 2. Open the ROS2 container
 The system configuration for writing and executing ROS code is already setup for you in a Docker container which is directly importable into your VS Code workspace. This will avoid you executing many additional steps the you will need instead to perform if you want to run it on your PC.
 
 1. Open VS Code (e.g., Alt+F2, type `code`, press Enter)
@@ -42,7 +42,7 @@ The system configuration for writing and executing ROS code is already setup for
 
 The first time you perform this, it will download and compile the ROS system and all the dependencies; therefore, it will take quite some time. 
 
-## 3. Connect to VNC (Graphical Interface)
+#### 3. Connect to VNC (Graphical Interface)
 
 
 1. Click on the "Port" in VSCode, find the "novnc" port, right click on it to open the menu, and then choose either "Open in Browser" to open it outside of VSCode or "Preview in Editor" to have it open within VSCode:
