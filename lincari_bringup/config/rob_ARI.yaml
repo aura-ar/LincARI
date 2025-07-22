@@ -19,7 +19,7 @@ windows:
     tags: []
     panes:
       - 'mkdir -p $MONGO_DIR/$ROBOT_NAME && roslaunch mongodb_store mongodb_store.launch db_path:=$MONGO_DIR/$ROBOT_NAME machine:=localhost'
-      - 'roslaunch lincari_logging logging.launch'
+      - 'rosrun lincari_logging lincari_logger.sh'
   # - name: record_interactions
   #   panes:
   #     - 'rosrun lindimp_logging interaction_dataset_collector.py _topics:="[/tf_static, /tf, /robot_pose, /PNP/goal, /PNP/result, /task_executor/events, /head_xtion/rgb/camera_info, /head_xtion/depth/camera_info, /head_xtion/rgb/image_rect_color, /head_xtion/depth/image_rect_raw]"'
