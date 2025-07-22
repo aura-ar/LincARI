@@ -3,11 +3,11 @@
 {
     "name": "lcas-gallium-ari35",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "lcas.lincoln.ac.uk/lcas/pal-gallium-pal-metapkg-development-ari:35-dev",
-    // "build": {
-    // 	"dockerfile": "Dockerfile",
-    // 	"context": "."
-    // },
+    // "image": "lcas.lincoln.ac.uk/lcas/pal-gallium-pal-metapkg-development-ari:35-dev",
+    "build": {
+    	"dockerfile": "../.docker/Dockerfile",
+    	"context": ".."
+    },
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/desktop-lite:1": {}
@@ -27,7 +27,7 @@
         }
     },
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "bash .devcontainer/run.sh",
+    // "postCreateCommand": "bash .devcontainer/run.sh",
     "containerUser": "root",
     // Configure tool-specific properties.
     // "customizations": {},

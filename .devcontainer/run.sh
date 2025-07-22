@@ -9,8 +9,12 @@ add_source_bashrc () {
 
 set -e
 
+
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
 source /opt/pal/gallium/setup.bash
 sudo apt update
+sudo apt upgrade
 sudo rosdep init
 sudo rosdep update 
 
