@@ -4,7 +4,7 @@ TIAGO_NUM=35
 
 # Change ROS Master
 echo "Connecting through Ethernet"
-export ROS_MASTER=10.68.0.1
+export ROS_MASTER=10.5.32.6
 export ROS_MASTER_URI=http://${ROS_MASTER}:11311
 
 
