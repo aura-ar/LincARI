@@ -3,7 +3,8 @@
 import rospy
 from actionlib import SimpleActionClient
 from play_motion_msgs.msg import PlayMotionAction, PlayMotionGoal
-import speakingrobot
+import speakingrobot, expressions
+
 
 def waving():
 
@@ -24,9 +25,10 @@ def waving():
     
 def main():
     rospy.init_node("test_node", anonymous=True)
-    speakingrobot.greetings()
+    expressions.excited()
+    #speakingrobot.greetings()
     waving()
-
+    expressions.neutral()
 
 if __name__ == '__main__':
     try:
