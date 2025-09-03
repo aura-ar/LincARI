@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import rospy
-
 from actionlib import SimpleActionClient
 from pal_interaction_msgs.msg import TtsAction, TtsGoal
 

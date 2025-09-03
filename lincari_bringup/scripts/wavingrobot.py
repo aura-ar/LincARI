@@ -7,7 +7,7 @@ import speakingrobot, expressions
 
 
 def waving():
-
+    
     client = SimpleActionClient("/play_motion", PlayMotionAction)
 
     rospy.loginfo("Looking for Play_Motion Node")
@@ -25,8 +25,8 @@ def waving():
     
 def main():
     rospy.init_node("test_node", anonymous=True)
+    speakingrobot.greetings()
     expressions.excited()
-    #speakingrobot.greetings()
     waving()
     expressions.neutral()
 

@@ -21,7 +21,6 @@ RUN apt install -y \
     pulseaudio-utils \
     alsa-utils \
     python3-pyaudio
-
     
 # Add root user to the audio group
 RUN usermod -aG audio root
