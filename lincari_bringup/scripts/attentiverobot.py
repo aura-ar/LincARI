@@ -1,6 +1,11 @@
 import rospy 
-from attention_manager.srv import SetPolicy
+from attention_manager_msgs.srv import SetPolicy
+
+# rosservice call /gaze_manager/enable_neck
+# rosservice call /gaze_manager/disable_neck
 
 rospy.wait_for_service("/attention_manager/set_policy", timeout = 5)
 set_policy = rospy.ServiceProxy("/attention_manager/set_policy", SetPolicy)
-response = set_policy(3 , "") # policy 3 empty frame
+response = set_policy(0 , "") # policy 2 empty frame 2 tracks people with eyes3 
+# rospy.wait_for_service("/gaze_manager/enable_neck", timeout = 5)
+# neck_on = rospy.ServiceProxy("/gaze_manager/enable_neck", )
