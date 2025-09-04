@@ -20,7 +20,9 @@ RUN apt install -y \
     iputils-ping \
     pulseaudio-utils \
     alsa-utils \
-    python3-pyaudio
+    python3-pyaudio \
+    pal-gallium-attention-manager \
+    pal-gallium-attention-manager-msgs
 
 
 # Add root user to the audio group
