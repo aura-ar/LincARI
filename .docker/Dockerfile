@@ -22,9 +22,10 @@ RUN apt install -y \
     alsa-utils \
     python3-pyaudio \
     pal-gallium-attention-manager \
-    pal-gallium-attention-manager-msgs
+    pal-gallium-attention-manager-msgs \
+    pal-gallium-pal-web-msgs 
 
-
+    
 # Add root user to the audio group
 RUN usermod -aG audio root
 

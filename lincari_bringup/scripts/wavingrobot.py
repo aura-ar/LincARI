@@ -25,9 +25,10 @@ def waving():
     
 def main():
     rospy.init_node("test_node", anonymous=True)
-    #speakingrobot.greetings()
-    #expressions.excited()
-    #waving()
+    
+    speakingrobot.greetings()
+    expressions.excited()
+    waving()
     expressions.neutral()
 
 if __name__ == '__main__':

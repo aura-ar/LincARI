@@ -4,7 +4,7 @@ TIAGO_NUM=35
 
 # Change ROS Master
 echo "Connecting through Ethernet"
-export ROS_MASTER=10.5.32.129
+export ROS_MASTER=10.5.32.10
 export ROS_MASTER_URI=http://${ROS_MASTER}:11311
 
 
@@ -18,13 +18,13 @@ trap - SIGINT    # Remove the trap, now we're done with it
 echo "Done pinging ros master."
 
 # check the ros master is running
-# rostopic list &>/dev/null
-# RETVAL=$?
-# if [ $RETVAL -ne 0 ]; then
-#     echo "[ERROR] connection with ROS MASTER not enstablished"
-# else
-#     echo "[OK] Connected to ROS MASTER"
-# fi
+rostopic list &>/dev/null
+RETVAL=$?
+if [ $RETVAL -ne 0 ]; then
+    echo "[ERROR] connection with ROS MASTER not established"
+else
+    echo "[OK] Connected to ROS MASTER"
+fi
 
 # Add forwarding address to DNS
 #echo $ROBOT_IFACE
