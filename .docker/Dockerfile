@@ -23,7 +23,7 @@ RUN apt install -y \
     python3-pyaudio \
     pal-gallium-attention-manager \
     pal-gallium-attention-manager-msgs \
-    pal-gallium-pal-web-msgs 
+    pal-gallium-pal-web-msgs=0.14.1-0
 
     
 # Add root user to the audio group
