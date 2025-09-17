@@ -23,10 +23,10 @@ RUN apt install -y \
     python3-pyaudio \
     pal-gallium-attention-manager \
     pal-gallium-attention-manager-msgs \
-    pal-gallium-pal-web-msgs=0.14.1-0
+    pal-gallium-pal-web-msgs=0.14.1-0 
 
-    
-# Add root user to the audio group
+#Added specific user 
+# Add root user to the audio group 
 RUN usermod -aG audio root
 
 # Set appropriate permissions for the PulseAudio socket and cookie
