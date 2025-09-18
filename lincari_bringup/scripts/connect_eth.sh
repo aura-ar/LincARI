@@ -27,8 +27,8 @@ else
 fi
 
 # Add forwarding address to DNS
-#echo $ROBOT_IFACE
-#THIS_IP=`ifconfig ${ROBOT_IFACE} | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
+# echo $ROBOT_IFACE
+# THIS_IP=`ifconfig ${ROBOT_IFACE} | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
 THIS_IP=`ip route get ${ROS_MASTER} | grep "src" | sed 's/.*src \([0-9\.]*\).*/\1/'`
 export ROS_HOSTNAME=${HOSTNAME}
 export ROS_IP=${THIS_IP}
