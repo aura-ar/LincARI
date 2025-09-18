@@ -25,7 +25,8 @@ RUN apt install -y \
     pal-gallium-attention-manager-msgs \
     pal-gallium-pal-web-msgs=0.14.1-0 
 
-#Added specific user 
+#Added specific version of web-msgs to match with the current version on the ari
+ 
 # Add root user to the audio group 
 RUN usermod -aG audio root
 
