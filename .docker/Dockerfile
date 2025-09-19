@@ -24,7 +24,8 @@ RUN apt install -y \
     pal-gallium-attention-manager \
     pal-gallium-attention-manager-msgs \
     pal-gallium-pal-web-msgs=0.14.1-0 \
-    ros-noetic-rosbridge-server
+    ros-noetic-rosbridge-server 
+    # pal-gallium-pyhri=0.4.1-0
 
 #Added specific version of web-msgs to match with the current version on the ari
  

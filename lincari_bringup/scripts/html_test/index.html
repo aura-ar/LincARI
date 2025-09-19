@@ -42,18 +42,16 @@
                 ros : ros,
                 name : '/user_input',
                 messageType : 'pal_interaction_msgs/Input'
-            });
+            });z
         </script>
 
         <script>
             document.getElementById("GoToPage2").addEventListener("click", function(){
                 var sending = new ROSLIB.Message({
-                    args: [{key: "text", value: "Meow"}]
+                    args: [{key: "text", value: "Sample Text"}]
                 });
 
                 userInputTopic.publish(sending);
-
-                console.log("Sending Message");
             })
         </script>
 

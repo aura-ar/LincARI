@@ -3,7 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Page 2</title>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+        
+        <script>
+            var ros = new ROSLIB.Ros({
+                url : 'ws://127.0.0.1:9090'
+            }); </script>
+
     </head>
     <body>
         <p>This is page 2</p>
@@ -14,5 +22,22 @@
                 Go Back
             </button>
         </a>
+
+        <script>
+             var listener = new ROSLIB.Topic({
+                ros : ros,
+                name : '/touchpage_publisher',
+                messageType : 'std_msgs/String'
+            });
+        
+        </script>
+
+        <script>
+            listener.subscribe(function(signal){
+            window.location.href = "index";
+            });
+        </script>
+
+
     </body>
 </html>
