@@ -2,7 +2,7 @@ ETH=$1
 TIAGO_NUM="35"
 #echo $TIAGO_NUM
 
-export ROBOT_HOSTNAME=ari-35c.network.uni
+export ROBOT_HOSTNAME=ari-35c #.network.uni
 export ROS_MASTER=`getent hosts ${ROBOT_HOSTNAME} | awk '{ print $1 }'`
 
 export ROS_MASTER_URI=http://${ROS_MASTER}:11311

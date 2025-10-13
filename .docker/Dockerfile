@@ -15,7 +15,7 @@ RUN bash -c "source /opt/pal/gallium/setup.bash && \
     rosdep update"
 
 # Install additional packages
-RUN apt install -y \
+RUN apt update && apt install -y \
     iproute2 \
     iputils-ping \
     pulseaudio-utils \
@@ -24,8 +24,8 @@ RUN apt install -y \
     pal-gallium-attention-manager \
     pal-gallium-attention-manager-msgs \
     pal-gallium-pal-web-msgs=0.14.1-0 \
-    ros-noetic-rosbridge-server 
-    # pal-gallium-pyhri=0.4.1-0
+    ros-noetic-rosbridge-server \
+    pal-gallium-pyhri=0.4.1-0
 
 #Added specific version of web-msgs to match with the current version on the ari
  

@@ -4,6 +4,8 @@ from pal_web_msgs.msg import WebGoTo
 from pal_interaction_msgs.msg import Input
 from std_msgs.msg import String
 import wavingrobot, speakingrobot
+from pyhri import HRIListener
+
 
 
 
@@ -37,6 +39,9 @@ def timesup():
     signal = "signal"
     pub2.publish(signal)
 
+def speak():
+
+    speakingrobot.greetings()
 
 #Function for listening to the button press and executing previous function
 def listener():
@@ -46,11 +51,17 @@ def listener():
         if count < 10:
             count += 1
             print(count)
+            print(len(hri.faces))
             rospy.sleep(1)
             
         else:
             timesup()
             count = 0 
+        
+        if len(hri.faces) != 0:
+            rospy.sleep(0.5)
+            speak()
+
 
     
 #roslaunch rosbridge_server rosbridge_websocket.launch
@@ -61,7 +72,9 @@ if __name__ == '__main__':
         count = 0
         publish_touch_page("auroratesting2")
         print("Published")
+        hri = HRIListener()
         listener()
+        
 
     except rospy.ROSInterruptException:
         pass

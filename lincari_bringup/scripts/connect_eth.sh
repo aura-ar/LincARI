@@ -4,7 +4,7 @@ TIAGO_NUM=35
 
 # Change ROS Master
 echo "Connecting through Ethernet"
-export ROS_MASTER=10.5.32.10
+export ROS_MASTER=10.68.0.1
 export ROS_MASTER_URI=http://${ROS_MASTER}:11311
 
 
@@ -30,7 +30,8 @@ fi
 # echo $ROBOT_IFACE
 # THIS_IP=`ifconfig ${ROBOT_IFACE} | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
 THIS_IP=`ip route get ${ROS_MASTER} | grep "src" | sed 's/.*src \([0-9\.]*\).*/\1/'`
-export ROS_HOSTNAME=${HOSTNAME}
+# export ROS_HOSTNAME=${HOSTNAME}
+export ROS_HOSTNAME=${THIS_IP}
 export ROS_IP=${THIS_IP}
 # add to bashrc
 echo "export ROS_MASTER_URI=${ROS_MASTER_URI}" >> ~/.bashrc
