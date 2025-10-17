@@ -3,7 +3,7 @@
 import rospy
 from actionlib import SimpleActionClient
 from pal_interaction_msgs.msg import TtsAction, TtsGoal
-
+from pyhri import HRIListener
 
 def greetings():
     talking_client = SimpleActionClient("/tts", TtsAction)
@@ -13,7 +13,7 @@ def greetings():
     rospy.loginfo("Tts Ready!")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Hello!"
+    goal.rawtext.text = "Hello! Welcome to FoodLinks"
     goal.rawtext.lang_id = "en_AU"
     talking_client.send_goal_and_wait(goal)
     rospy.loginfo("Speech Complete")

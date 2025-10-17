@@ -4,7 +4,7 @@ from pal_web_msgs.msg import WebGoTo
 from pal_interaction_msgs.msg import Input
 from std_msgs.msg import String
 import wavingrobot, speakingrobot
-from pyhri import HRIListener
+
 
 
 
@@ -31,7 +31,13 @@ def callback(txt):
     global count
     count = 0
     rospy.loginfo("Button Pressed")
-    speakingrobot.greetings()
+    # speakingrobot.greetings()
+
+#Need to add a listener and publisher that detects when the button is pressed to add to a count
+#This will mean we know how many times people have interacted with the robot's touchscreen?
+#I'm not sure how much we need this since it will be impossible to tell if people are clicking more than once.
+#But I can bring it up in the next meeting perhaps
+
 
 def timesup():
     pub2 = rospy.Publisher("/touchpage_publisher", String, queue_size=1)
@@ -39,9 +45,6 @@ def timesup():
     signal = "signal"
     pub2.publish(signal)
 
-def speak():
-
-    speakingrobot.greetings()
 
 #Function for listening to the button press and executing previous function
 def listener():
@@ -58,9 +61,6 @@ def listener():
             timesup()
             count = 0 
         
-        if len(hri.faces) != 0:
-            rospy.sleep(0.5)
-            speak()
 
 
     
@@ -72,7 +72,6 @@ if __name__ == '__main__':
         count = 0
         publish_touch_page("auroratesting2")
         print("Published")
-        hri = HRIListener()
         listener()
         
 
