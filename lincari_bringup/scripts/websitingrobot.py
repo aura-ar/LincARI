@@ -33,10 +33,9 @@ def callback(txt):
     rospy.loginfo("Button Pressed")
     # speakingrobot.greetings()
 
-#Need to add a listener and publisher that detects when the button is pressed to add to a count
-#This will mean we know how many times people have interacted with the robot's touchscreen?
-#I'm not sure how much we need this since it will be impossible to tell if people are clicking more than once.
-#But I can bring it up in the next meeting perhaps
+
+#SUPER IMPORTANT COMMAND
+#rosbag record -O buttons.bag -e "/humans/persons/.*"
 
 
 def timesup():
@@ -54,7 +53,7 @@ def listener():
         if count < 10:
             count += 1
             print(count)
-            print(len(hri.faces))
+            # print(len(hri.faces))
             rospy.sleep(1)
             
         else:
