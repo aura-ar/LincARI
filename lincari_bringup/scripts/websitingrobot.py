@@ -35,7 +35,7 @@ def callback(txt):
 
 
 #SUPER IMPORTANT COMMAND
-#rosbag record -O buttons.bag -e "/humans/persons/.*"
+#rosbag record -O humans.bag -e "/humans/faces/.*"
 
 
 def timesup():
