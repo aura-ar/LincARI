@@ -18,6 +18,21 @@ def greetings():
     talking_client.send_goal_and_wait(goal)
     rospy.loginfo("Speech Complete")
 
+
+def encourage():
+
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("TTS Ready")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "I can show you carbon emissions"
+    goal.rawtext.lang_id = "en_AU"
+    talking_client.send_goal_and_wait(goal)
+    rospy.loginfo("Speech Complete")
+
 def main():
     rospy.init_node("talking_node", anonymous=True)
     greetings()

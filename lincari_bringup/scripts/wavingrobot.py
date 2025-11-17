@@ -26,7 +26,7 @@ def waving():
 def main():
     rospy.init_node("test_node", anonymous=True)
     
-    speakingrobot.greetings()
+    # speakingrobot.greetings()
     expressions.excited()
     waving()
     expressions.neutral()

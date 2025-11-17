@@ -3,10 +3,23 @@ from attention_manager_msgs.srv import SetPolicy
 from pyhri import HRIListener
 from std_msgs.msg import String
 import expressions, speakingrobot, wavingrobot
+from pal_interaction_msgs.msg import Input
 from random import randint
 
 # rosservice call /gaze_manager/enable_neck
 # rosservice call /gaze_manager/disable_neck
+
+def message_reciever(txt):
+    # message = msg.data
+    #Maybe you can translate this into being published onto the other node that we are publishing messages to so that we don't have to capture too many
+    #nodes and so that we don't have to capture the entire Input argument and can only capture the text that is relevant.
+
+    #Could also be possible that we publish all of them under one simple publish command that just recieves the message, which elaborates on the specific
+    #button that was pressed and uses that as the input argument. 
+    #These are the things to consider for tomorrow.
+    #Good night Neverland.
+    print(txt.args[0].value)
+    
 
 def speak():
     number = randint(1,4)
@@ -14,7 +27,7 @@ def speak():
         speakingrobot.greetings()
 
     elif number == 2:
-        speakingrobot.greetings()
+        speakingrobot.encourage()
 
     elif number == 3:
         speakingrobot.greetings()
@@ -26,18 +39,30 @@ def speak():
 
 def main():
 
+ 
     rospy.wait_for_service("/attention_manager/set_policy", timeout = 5)
     set_policy = rospy.ServiceProxy("/attention_manager/set_policy", SetPolicy)
     pubb = rospy.Publisher("/FaceDetection", String, queue_size=10)
     response = set_policy(2 , "") # policy 2 empty frame 2 tracks people with eyes3 
     expressions.neutral()
+    rospy.Subscriber("/user_input", Input, message_reciever)
+
     # rospy.wait_for_service("/gaze_manager/enable_neck", timeout = 5)
     # neck_on = rospy.ServiceProxy("/gaze_manager/enable_neck", )
     while not rospy.is_shutdown():
+
         pubb.publish(f"Face Detected: {hri.faces}")
         rospy.sleep(1)
+
+        # if mesagee:
+        #     rospy.loginfo("Person Interacting... Holding")
+        #     rospy.sleep(30)
+        #     message = blank
+        #     continue
+
         # if len(hri.faces) != 0:
-        #     speak()
+            # speak()
+
 
 
 
