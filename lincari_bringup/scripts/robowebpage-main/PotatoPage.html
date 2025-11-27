@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> PotatoPage </title>
+
+        <meta charset="UTF-8">
+        <!-- Make sure the webpage scales based on device -->
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> 
+        <!-- Link the css file for config -->
+        <link rel="stylesheet" href="style.css"> 
+        <!-- Install Packages -->
+        <!-- <script src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.js"></script> -->
+        <!-- <script src="http://static.robotwebtools.org/roslibjs/current/roslib.js"></script>  -->
+        <script type="text/javascript" src="packages/roslib.min.js"></script>
+        
+        <script>
+            var ros = new ROSLIB.Ros({
+                url : 'ws://127.0.0.1:9090'
+            }); </script>
+
+        
+    
+    </head>
+    
+    <body>
+        <h1></h1>
+        
+
+        <!-- <a href="https://ourworldindata.org/food-choice-vs-eating-local">
+        <img src="Images/Environmental-impact-of-food-by-life-cycle-stage.png" height="700" width = 700 alt="The emissions of various foodstuffs" title="https://ourworldindata.org/food-choice-vs-eating-local">
+        </a> -->
+
+<div class="image-row">
+        <a>
+            <img src="Images/Week2Potato.png">
+        </a>
+
+
+
+        </div>
+</div>
+
+<div>
+        <a href="index.html">
+            <button id="GoToMain">
+                <img src="Images/GoBack.png" width="200" height="200">
+                <div>
+                Go Back
+                </div>  
+            </button>
+        </a>
+</div>
+
+        <script>
+             var userInputTopic = new ROSLIB.Topic({
+                ros : ros,
+                name : '/user_input',
+                messageType : 'pal_interaction_msgs/Input'
+            });
+        </script>
+
+        <script>
+            document.getElementById("GoToMain").addEventListener("click", function(){
+                var sending = new ROSLIB.Message({
+                    args: [{key: "text", value: "Potato to Main"}]
+                });
+
+                userInputTopic.publish(sending);
+            })
+        </script>
+
+        <script>
+             var listener = new ROSLIB.Topic({
+                ros : ros,
+                name : '/touchpage_publisher',
+                messageType : 'std_msgs/String'
+            });
+        
+        </script>
+
+        <script>
+            listener.subscribe(function(signal){
+            window.location.href = "index";
+            });
+        </script>
+
+         </body>
+</html>

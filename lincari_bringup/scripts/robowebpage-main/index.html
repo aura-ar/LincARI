@@ -12,7 +12,7 @@
         <!-- Install Packages -->
         <!-- <script src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.js"></script> -->
         <!-- <script src="http://static.robotwebtools.org/roslibjs/current/roslib.js"></script>  -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+        <script type="text/javascript" src="packages/roslib.min.js"></script>
         
         <script>
             var ros = new ROSLIB.Ros({
@@ -24,47 +24,52 @@
     </head>
     
     <body>
-        <h1> 8 in 10 people want to be more sustainable </h1>
+        <h1></h1>
         
 
         <!-- <a href="https://ourworldindata.org/food-choice-vs-eating-local">
         <img src="Images/Environmental-impact-of-food-by-life-cycle-stage.png" height="700" width = 700 alt="The emissions of various foodstuffs" title="https://ourworldindata.org/food-choice-vs-eating-local">
         </a> -->
 
+<div class="image-row">
+    <!-- Here we can use the root 2 aspect ratio to resize the image based on the ari screen size, do this for all of the images please, but note that we will probably have to do a lot of horizontal strecthing because of the different aspect ratios. -->
         <a>
-            <img src="Images/Screenshot 2025-09-25 140311.png">
+            <img src="Images/Week2Main.png" height="989" width = "1400"> 
         </a>
 
-        <div>
 
-        
-        <a href="page2.html">
-            <button id="GoToPage2">
-                <img src="Images/Taj_Mahal_-_Lamb_Curry_Madras.jpg" width="200" height="100">
-                <div>
-                Curry
-                </div>
-            </button>
-        </a>
 
-        <a href="page2.html">
-            <button id="ExampleButton">
-                <img src="Images/Shoyu-Ramen-crop2.webp" width="200" height="100">
-                <div>
-                    Ramen
-                </div>
-            </button>
-        </a>
-
-        <a href="page2.html">
-            <button id="ExampleButton2">
-                <img src="Images/loaded-fries-featured-image.jpg" width="200" height="100">
-                <div>
-                Loaded Fries
-                </div>
-            </button>
-        </a>
         </div>
+</div>
+
+<div>
+        <a href="PotatoPage.html">
+            <button id="GoToPotatoPage">
+                <img src="Images/Potatoish.png" width="200" height="100">
+                <div>
+                Jacket Potato
+                </div>  
+            </button>
+        </a>
+
+        <a href="HomeComfortsPage.html">
+            <button id="GoToComforts">
+                <img src="Images/Borgir.png" width="200" height="100">
+                <div>
+                    Hot Home Comfort
+                </div>
+            </button>
+        </a>
+
+        <a href="NoodleBarPage.html">
+            <button id="GoToNoodlePage">
+                <img src="Images/Noodles.png" width="200" height="100">
+                <div>
+                Noodle Bar
+                </div>
+            </button>
+        </a>
+</div>
 
 
         <script>
@@ -76,9 +81,9 @@
         </script>
 
         <script>
-            document.getElementById("GoToPage2").addEventListener("click", function(){
+            document.getElementById("GoToPotatoPage").addEventListener("click", function(){
                 var sending = new ROSLIB.Message({
-                    args: [{key: "text", value: "Sample Text"}]
+                    args: [{key: "text", value: "Main to Potato"}]
                 });
 
                 userInputTopic.publish(sending);
@@ -86,9 +91,9 @@
         </script>
 
         <script>
-            document.getElementById("ExampleButton").addEventListener("click", function(){
+            document.getElementById("GoToComforts").addEventListener("click", function(){
                 var sending = new ROSLIB.Message({
-                    args: [{key: "text", value: "Sample Text"}]
+                    args: [{key: "text", value: "Main to Home Comforts"}]
                 });
 
                 userInputTopic.publish(sending);
@@ -97,9 +102,9 @@
 
 
         <script>
-            document.getElementById("ExampleButton2").addEventListener("click", function(){
+            document.getElementById("GoToNoodlePage").addEventListener("click", function(){
                 var sending = new ROSLIB.Message({
-                    args: [{key: "text", value: "Sample Text"}]
+                    args: [{key: "text", value: "Main to Noodle Bar"}]
                 });
 
                 userInputTopic.publish(sending);
