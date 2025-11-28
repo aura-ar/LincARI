@@ -47,7 +47,7 @@ def noodle():
         speakingrobot.green()
 
 def homecomfort():
-    number = rantint(1,3)
+    number = randint(1,3)
     if number == 1:
         speakingrobot.dailyfood()
     elif number == 2:
