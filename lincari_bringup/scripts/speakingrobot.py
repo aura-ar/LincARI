@@ -70,21 +70,120 @@ def guilt():
     expressions.neutral
     rospy.loginfo("Speech Complete")
 
-def asking():
+
+def tofu():
 
     talking_client = SimpleActionClient("/tts", TtsAction)
 
     # rospy.loginfo("Looking for tts node")
     talking_client.wait_for_server()
-    rospy.loginfo("Guilt")
+    rospy.loginfo("Tofu")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Are you still there?"
+    goal.rawtext.text = "Try our tofu noodles. They're my favourite!"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)
     expressions.neutral
     rospy.loginfo("Speech Complete")
+
+def happy():
+
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    # rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("Happy")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "Thank you for your interest!"
+    goal.rawtext.lang_id = "en_AU"
+    expressions.excited
+    talking_client.send_goal_and_wait(goal)
+    expressions.neutral
+    rospy.loginfo("Speech Complete")
+
+def green():
+
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    # rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("Green")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "Let's help our planet together!"
+    goal.rawtext.lang_id = "en_AU"
+    expressions.excited
+    talking_client.send_goal_and_wait(goal)
+    expressions.neutral
+    rospy.loginfo("Speech Complete")
+
+def dailyfood():
+    
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    # rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("Daily")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "Try our chickpea balti today!"
+    goal.rawtext.lang_id = "en_AU"
+    expressions.excited
+    talking_client.send_goal_and_wait(goal)
+    expressions.neutral
+    rospy.loginfo("Speech Complete")
+
+def potatoing():
+
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    # rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("Potation")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "Try our vegan curry!"
+    goal.rawtext.lang_id = "en_AU"
+    expressions.excited
+    talking_client.send_goal_and_wait(goal)
+    expressions.neutral
+    rospy.loginfo("Speech Complete")
+
+
+def alsopotatoing():
+
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    # rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("Potation2")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "Try our Tuna Mayo!"
+    goal.rawtext.lang_id = "en_AU"
+    expressions.excited
+    talking_client.send_goal_and_wait(goal)
+    expressions.neutral
+    rospy.loginfo("Speech Complete")
+
+
+# def asking():
+
+#     talking_client = SimpleActionClient("/tts", TtsAction)
+
+#     # rospy.loginfo("Looking for tts node")
+#     talking_client.wait_for_server()
+#     # rospy.loginfo("asking")
+
+#     goal = TtsGoal()
+#     goal.rawtext.text = "Are you still there?"
+#     goal.rawtext.lang_id = "en_AU"
+#     expressions.excited
+#     talking_client.send_goal_and_wait(goal)
+#     expressions.neutral
+#     rospy.loginfo("Speech Complete")
 
 def main():
     rospy.init_node("talking_node", anonymous=True)

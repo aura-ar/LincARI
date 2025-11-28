@@ -13,7 +13,7 @@ from pal_web_msgs.msg import WebGoTo
 # rosservice call /gaze_manager/disable_neck
 
 def message_reciever(txt):
-    global Last_time
+    global Last_time, txet
     txet = txt.args[0].value
     publisher.publish(txet)
 
@@ -35,6 +35,37 @@ def speak():
         wavingrobot.waving()
 
     Last_time = time.time()
+
+def noodle():
+
+    number = randint(1,3)
+    if number == 1:
+        speakingrobot.tofu()
+    elif number == 2:
+        speakingrobot.happy()
+    elif number == 3:
+        speakingrobot.green()
+
+def homecomfort():
+    number = rantint(1,3)
+    if number == 1:
+        speakingrobot.dailyfood()
+    elif number == 2:
+        speakingrobot.green()
+    elif number == 3:
+        speakingrobot.happy()
+
+def potato():
+    number = randint(1,4)
+    if number == 1: 
+        speakingrobot.green()
+    elif number == 2:
+        speakingrobot.happy()
+    elif number == 3:
+        speakingrobot.potatoing()
+    elif number == 4:
+        speakingrobot.alsopotatoing()
+        
 
 
 def timesup():
@@ -59,7 +90,7 @@ def publish_touch_page(page_name):
 
 def main():
 
-    global Last_time
+    global Last_time, txet
     rospy.wait_for_service("/attention_manager/set_policy", timeout = 5)
     set_policy = rospy.ServiceProxy("/attention_manager/set_policy", SetPolicy)
     pubb = rospy.Publisher("/humans/faces/FaceDetection", String, queue_size=10)
@@ -75,34 +106,12 @@ def main():
         print(time.time() - Last_time)
         rospy.sleep(1)
 
-
-
-# def listener():
-#     global count
-#     rospy.Subscriber("/user_input", Input, callback)
-#     while not rospy.is_shutdown():
-#         if count < 10:
-#             count += 1
-#             print(count)
-#             # print(len(hri.faces))
-#             rospy.sleep(1)
-            
-#         else:
-#             timesup()
-#             count = 0 
-
-
-
-        # if mesagee:
-        #     rospy.loginfo("Person Interacting... Holding")
-        #     rospy.sleep(30)
-        #     message = blank
-        #     continue
-
-        # if time.time() - Last_time >= 90:
-
-        #     speakingrobot.asking()
-
+        if txet == "Main to Noodle Bar":
+            noodle()
+        elif txet == "Main to Potato":
+            potato()
+        elif txet == "Main to Home Comforts":
+            homecomfort()
 
         if time.time() - Last_time >= 60:
             
@@ -112,6 +121,8 @@ def main():
             
                 speak()
                 rospy.sleep(1)
+
+        
 
 
 
