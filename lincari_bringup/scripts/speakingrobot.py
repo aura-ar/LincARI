@@ -7,7 +7,23 @@ from pyhri import HRIListener
 import expressions
 
 
+def introduce():
+
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    # rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("Hello")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "Hello! I am ARI a sustainable eating robot!"
+    goal.rawtext.lang_id = "en_AU"
+    talking_client.send_goal_and_wait(goal)
+    rospy.loginfo("Speech Complete")
+
+
 def hello():
+
     talking_client = SimpleActionClient("/tts", TtsAction)
 
     # rospy.loginfo("Looking for tts node")
@@ -22,6 +38,7 @@ def hello():
 
 
 def greetings():
+
     talking_client = SimpleActionClient("/tts", TtsAction)
 
     # rospy.loginfo("Looking for tts node")
@@ -29,7 +46,7 @@ def greetings():
     rospy.loginfo("Greetings")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Hello! Welcome to FoodLinks"
+    goal.rawtext.text = "Hello! Welcome to our cafeteria!"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)

@@ -21,7 +21,7 @@ def message_reciever(txt):
 
 def speak():
     global Last_time
-    number = randint(1,4)
+    number = randint(1,5)
     if number == 1:
         speakingrobot.greetings()
 
@@ -33,6 +33,9 @@ def speak():
 
     elif number == 4:
         wavingrobot.waving()
+
+    elif number == 5:
+        speakingrobot.introduce()
 
     Last_time = time.time()
 
