@@ -30,3 +30,28 @@ html, body {
   justify-content: flex-start;
   gap: 10px; /* space between heading and image */
 }
+
+#GoToNoodlePage div {
+    font-size: 24px;   /* Make the text bigger */
+    font-weight: bold;  /* Optional: makes it stand out */
+    text-align: center; /* Keeps the text centered */
+}
+
+#GoToPotatoPage div {
+    font-size: 24px;   /* Make the text bigger */
+    font-weight: bold;  /* Optional: makes it stand out */
+    text-align: center; /* Keeps the text centered */
+}
+
+#GoToComforts div {
+    font-size: 24px;   /* Make the text bigger */
+    font-weight: bold;  /* Optional: makes it stand out */
+    text-align: center; /* Keeps the text centered */
+}
+
+#GoToMain div {
+    font-size: 24px;   /* Make the text bigger */
+    font-weight: bold;  /* Optional: makes it stand out */
+    text-align: center; /* Keeps the text centered */
+}
+
