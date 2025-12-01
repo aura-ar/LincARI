@@ -21,7 +21,7 @@ def message_reciever(txt):
 
 def speak():
     global Last_time
-    number = randint(1,5)
+    number = randint(1,10)
     if number == 1:
         speakingrobot.greetings()
 
@@ -37,37 +37,52 @@ def speak():
     elif number == 5:
         speakingrobot.introduce()
 
+    elif number == 6:
+            speakingrobot.tofu
+
+    elif number == 7:
+        speakingrobot.green()   
+
+    elif number == 8:
+        speakingrobot.dailyfood()
+
+    elif number == 9:
+        speakingrobot.potatoing()
+    
+    elif number == 10:
+        speakingrobot.alsopotatoing()
+
     Last_time = time.time()
 
-def noodle():
+# def noodle():
 
-    number = randint(1,3)
-    if number == 1:
-        speakingrobot.tofu()
-    elif number == 2:
-        speakingrobot.happy()
-    elif number == 3:
-        speakingrobot.green()
+#     number = randint(1,3)
+#     if number == 1:
+#         speakingrobot.tofu()
+#     elif number == 2:
+#         speakingrobot.happy()
+#     elif number == 3:
+#         speakingrobot.green()
 
-def homecomfort():
-    number = randint(1,3)
-    if number == 1:
-        speakingrobot.dailyfood()
-    elif number == 2:
-        speakingrobot.green()
-    elif number == 3:
-        speakingrobot.happy()
+# def homecomfort():
+#     number = randint(1,3)
+#     if number == 1:
+#         speakingrobot.dailyfood()
+#     elif number == 2:
+#         speakingrobot.green()
+#     elif number == 3:
+#         speakingrobot.happy()
 
-def potato():
-    number = randint(1,4)
-    if number == 1: 
-        speakingrobot.green()
-    elif number == 2:
-        speakingrobot.happy()
-    elif number == 3:
-        speakingrobot.potatoing()
-    elif number == 4:
-        speakingrobot.alsopotatoing()
+# def potato():
+#     number = randint(1,4)
+#     if number == 1: 
+#         speakingrobot.green()
+#     elif number == 2:
+#         speakingrobot.happy()
+#     elif number == 3:
+#         speakingrobot.potatoing()
+#     elif number == 4:
+#         speakingrobot.alsopotatoing()
         
 
 
@@ -93,7 +108,7 @@ def publish_touch_page(page_name):
 
 def main():
 
-    global Last_time, txet
+    global Last_time
     rospy.wait_for_service("/attention_manager/set_policy", timeout = 5)
     set_policy = rospy.ServiceProxy("/attention_manager/set_policy", SetPolicy)
     pubb = rospy.Publisher("/humans/faces/FaceDetection", String, queue_size=10)
@@ -108,13 +123,14 @@ def main():
         pubb.publish(f"Face Detected: {hri.faces}")
         print(time.time() - Last_time)
         rospy.sleep(1)
+        # global txet 
 
-        if txet == "Main to Noodle Bar":
-            noodle()
-        elif txet == "Main to Potato":
-            potato()
-        elif txet == "Main to Home Comforts":
-            homecomfort()
+        # if txet == "Main to Noodle Bar":
+        #     noodle()
+        # elif txet == "Main to Potato":
+        #     potato()
+        # elif txet == "Main to Home Comforts":
+        #     homecomfort()
 
         if time.time() - Last_time >= 60:
             
@@ -147,5 +163,5 @@ if __name__ == '__main__':
         Last_time = time.time()
         publish_touch_page("auroratesting2")
         main()
-    except rospy.ROSInterruptException:
-        pass
+    except rospy.ROSInterruptException as e:
+        print(e)

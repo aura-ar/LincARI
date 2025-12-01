@@ -161,7 +161,7 @@ def potatoing():
     rospy.loginfo("Potation")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Try our vegan curry!"
+    goal.rawtext.text = "Try our vegan curry potato!"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)
@@ -178,7 +178,7 @@ def alsopotatoing():
     rospy.loginfo("Potation2")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Try our Tuna Mayo!"
+    goal.rawtext.text = "Try our Tuna Mayo potato!"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)
