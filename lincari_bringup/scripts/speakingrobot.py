@@ -97,7 +97,7 @@ def tofu():
     rospy.loginfo("Tofu")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Try our tofu noodles. They're my favourite!"
+    goal.rawtext.text = "Mushroom noodles are my favourite!"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)
@@ -145,7 +145,7 @@ def dailyfood():
     rospy.loginfo("Daily")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Try our chickpea balti today!"
+    goal.rawtext.text = "The vegan options are delicious"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)
@@ -161,7 +161,7 @@ def potatoing():
     rospy.loginfo("Potation")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Try our vegan curry potato!"
+    goal.rawtext.text = "Vegan curry potatos are the best!"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)
@@ -178,7 +178,24 @@ def alsopotatoing():
     rospy.loginfo("Potation2")
 
     goal = TtsGoal()
-    goal.rawtext.text = "Try our Tuna Mayo potato!"
+    goal.rawtext.text = "We have Tuna Mayo Potatos!"
+    goal.rawtext.lang_id = "en_AU"
+    expressions.excited
+    talking_client.send_goal_and_wait(goal)
+    expressions.neutral
+    rospy.loginfo("Speech Complete")
+
+
+def test():
+
+    talking_client = SimpleActionClient("/tts", TtsAction)
+
+    # rospy.loginfo("Looking for tts node")
+    talking_client.wait_for_server()
+    rospy.loginfo("testing")
+
+    goal = TtsGoal()
+    goal.rawtext.text = "Hello"
     goal.rawtext.lang_id = "en_AU"
     expressions.excited
     talking_client.send_goal_and_wait(goal)
@@ -208,7 +225,7 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        test()
     except rospy.ROSInterruptException:
         pass
 

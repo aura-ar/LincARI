@@ -22,6 +22,7 @@ def message_reciever(txt):
 def speak():
     global Last_time
     number = randint(1,10)
+    print(number)
     if number == 1:
         speakingrobot.greetings()
 
@@ -38,7 +39,7 @@ def speak():
         speakingrobot.introduce()
 
     elif number == 6:
-            speakingrobot.tofu
+        speakingrobot.tofu()
 
     elif number == 7:
         speakingrobot.green()   
@@ -112,7 +113,7 @@ def main():
     rospy.wait_for_service("/attention_manager/set_policy", timeout = 5)
     set_policy = rospy.ServiceProxy("/attention_manager/set_policy", SetPolicy)
     pubb = rospy.Publisher("/humans/faces/FaceDetection", String, queue_size=10)
-    response = set_policy(2 , "") # policy 2 empty frame 2 tracks people with eyes3 
+    response = set_policy(2, "") # policy 2 empty frame 2 tracks people with eyes3 
     expressions.neutral()
     rospy.Subscriber("/user_input", Input, message_reciever)
 
